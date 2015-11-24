@@ -64,7 +64,7 @@ platform.on('data', function (data) {
 
             pushOverClient.send( msg, function( error, result ) {
                 if (error){
-                    console.log(error);
+                    console.error(error);
                     platform.handleException(error);
                 }
                 else{
