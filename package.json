@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "lodash.isempty": "^3.0.4",
+    "lodash.isnumber": "^3.0.1",
     "lodash.isplainobject": "^3.2.0",
     "pushover-notifications": "^0.2.2"
   },
