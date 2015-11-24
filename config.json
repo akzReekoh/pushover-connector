@@ -1,0 +1,20 @@
+{
+  "user": {
+	"label": "User Key",
+	"type": "String",
+	"required": true,
+	"help": "Please provide your Pushover User Key."
+  },
+  "token": {
+	"label": "Token",
+	"type": "String",
+	"required": true,
+	"help": "Please provide your Pushover Application/API Token."
+  },
+  "default_message": {
+    "labe": "Default Message",
+    "type": "String",
+    "required": true,
+    "help": "Please provide a default message."
+  }
+}
