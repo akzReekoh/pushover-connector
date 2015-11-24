@@ -44,12 +44,12 @@ platform.on('data', function (data) {
             delete msg.priority;
 
         if(isEmpty(data.url))
-            delete  data.url;
+            delete  msg.url;
         else
             msg.url = data.url;
 
         if(isEmpty(data.url_title))
-            delete  data.url_title;
+            delete  msg.url_title;
         else
             msg.url_title = data.url_title;
 
