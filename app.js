@@ -107,5 +107,7 @@ platform.once('ready', function (options) {
             platform.handleException(error);
         }
     });
+
+    platform.log('Pushover Connector Initialized.');
 	platform.notifyReady();
 });
