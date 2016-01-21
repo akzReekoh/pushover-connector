@@ -12,7 +12,7 @@
 	"help": "Please provide your Pushover Application/API Token."
   },
   "default_message": {
-    "labe": "Default Message",
+    "label": "Default Message",
     "type": "String",
     "required": true,
     "help": "Please provide a default message."
