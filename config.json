@@ -7,7 +7,7 @@
   },
   "token": {
 	"label": "Token",
-	"type": "String",
+	"type": "Password",
 	"required": true,
 	"help": "Please provide your Pushover Application/API Token."
   },
