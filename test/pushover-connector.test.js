@@ -10,10 +10,13 @@ var cp     = require('child_process'),
 describe('Connector', function () {
 	this.slow(5000);
 
-	after('terminate child process', function () {
+	after('terminate child process', function (done) {
+		this.timeout(7000);
+
         setTimeout(function(){
             connector.kill('SIGKILL');
-        }, 10000);
+			done();
+        }, 5000);
 	});
 
 	describe('#spawn', function () {
@@ -46,7 +49,7 @@ describe('Connector', function () {
 	});
 
 	describe('#data', function (done) {
-		it('should process the data', function () {
+		it('should process the JSON data', function () {
 			connector.send({
 				type: 'data',
 				data: {
@@ -58,6 +61,34 @@ describe('Connector', function () {
                     url: 'http://reekoh.com',
                     url_title: 'Reekoh Official Website'
 				}
+			}, done);
+		});
+	});
+
+	describe('#data', function (done) {
+		it('should process the Array data', function () {
+			connector.send({
+				type: 'data',
+				data: [
+					{
+						message: 'This is a test message from Pushover Connector Plugin',
+						title: 'Test Message',
+						sound: 'default',
+						device: 'm1note',
+						priority: 1,
+						url: 'http://reekoh.com',
+						url_title: 'Reekoh Official Website'
+					},
+					{
+						message: 'This is a test message from Pushover Connector Plugin',
+						title: 'Test Message',
+						sound: 'default',
+						device: 'm1note',
+						priority: 1,
+						url: 'http://reekoh.com',
+						url_title: 'Reekoh Official Website'
+					}
+				]
 			}, done);
 		});
 	});
