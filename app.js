@@ -8,7 +8,7 @@ var platform = require('./platform'),
     async = require('async'),
 	pushOverClient, defaultMessage;
 
-let sendData = (data) => {
+let sendData = (data, callback) => {
     var msg = {
         message: '',
         title: '',
@@ -55,26 +55,34 @@ let sendData = (data) => {
         msg.url_title = data.url_title;
 
     pushOverClient.send( msg, function( error, result ) {
-        if (error){
-            console.error(error);
-            platform.handleException(error);
-        }
-        else{
+        if (!error){
             platform.log(JSON.stringify({
                 title: 'Pushover Notification Sent',
                 data: msg
             }));
         }
+
+        callback(error);
     });
 };
 
 platform.on('data', function (data) {
     if(isPlainObject(data)){
-        sendData(data);
+        sendData(data, (error) => {
+            if(error) {
+                console.error(error);
+                platform.handleException(error);
+            }
+        });
     }
     else if(isArray(data)){
-        async.each(data, (datum) => {
-            sendData(datum);
+        async.each(data, (datum, done) => {
+            sendData(datum, done);
+        }, (error) => {
+            if(error) {
+                console.error(error);
+                platform.handleException(error);
+            }
         });
     }
     else
