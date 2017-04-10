@@ -11,25 +11,25 @@ metadata:
   price: 0
   tags:
     - pushover
-  config:
-    user:
-      label: User Key
-      type: String
-      required: true
-      help: Please provide your Pushover User Key.
-      maxLength: 1000
-    token:
-      label: Token
-      type: Password
-      required: true
-      help: Please provide your Pushover Application/API Token.
-    defaultMessage:
-      label: Default Message
-      type: String
-      required: true
-      help: Please provide a default message.
-      maxLength: 1000
   release:
     version: 1.0.0
     notes: path/to/RELEASENOTESv1.0.0.md
     image: path/to/docker/image
+    config:
+        user:
+          label: User Key
+          type: String
+          required: true
+          help: Please provide your Pushover User Key.
+          maxLength: 1000
+        token:
+          label: Token
+          type: Password
+          required: true
+          help: Please provide your Pushover Application/API Token.
+        defaultMessage:
+          label: Default Message
+          type: String
+          required: true
+          help: Please provide a default message.
+          maxLength: 1000
